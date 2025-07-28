@@ -7,7 +7,7 @@ const Pricing = () => {
         Nuestros servicios
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 mt-4 gap-8">
-        <div className="bg-gradient-to-br from-white/10 to-white/20 border-b-[0.25px] border-t-[0.25px] border-slate-100 rounded-lg shadow-lg p-6">
+        <div className="bg-neutral-400/20 hover:bg-neutral-400/30 backdrop-blur-[1px] text-neutral-200 border-t-[0.25px] border-b-[0.25px] border-slate-50 transition rounded-lg shadow-lg p-6">
           <div className="flex flex-col space-y-2">
             <p className="text-slate-300 text-2xl">Básica</p>
             <p className="text-4xl font-bold text-slate-50">
@@ -60,8 +60,8 @@ const Pricing = () => {
             </li>
           </ul>
         </div>
-        <div className="bg-gradient-to-br border-t-[0.25px] border-b-[0.25px] border-slate-50 from-fuchsia-500/15 via-fuchsia-500/30 to-white/10 text-slate-300 rounded-lg shadow-lg p-6">
-          <span className="absolute -translate-y-10 translate-x-28 px-2 py-1 rounded-lg text-xs bg-radial from-white/0 to-white/20 backdrop-blur-md text-slate-100 border border-white/30 hover:border-white/90 shadow-lg hover:bg-white/20 transition">
+        <div className="bg-fuchsia-500/15 backdrop-blur-[1px] border-t-[0.25px] border-b-[0.25px] border-slate-50 text-slate-300 rounded-lg shadow-lg p-6">
+          <span className="absolute -translate-y-9 translate-x-28 px-2 py-1 rounded-lg text-xs bg-neutral-700/90 backdrop-blur-[1px] text-slate-100 border border-white/30 transition">
             recomendado
           </span>
           <div className="flex flex-col space-y-2">
@@ -113,7 +113,7 @@ const Pricing = () => {
             </li>
           </ul>
         </div>
-        <div className="bg-gradient-to-br from-indigo-400/30 to-slate-500/10 border-b-[0.25px] border-t-[0.25px] border-slate-100 text-slate-300 rounded-lg shadow-xl p-6">
+        <div className="bg-indigo-400/30 backdrop-blur-[1px] border-b-[0.25px] border-t-[0.25px] border-slate-100 text-slate-300 rounded-lg shadow-xl p-6">
           <div className="flex flex-col space-y-2">
             <p className="text-2xl text-indigo-400">Pro</p>
             <p className="text-4xl font-bold text-slate-50">
