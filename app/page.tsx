@@ -65,7 +65,7 @@ export default function Home() {
         {/* Hero con parallax */}
         <motion.div
           style={{ y: heroY }}
-          className="relative z-10 h-[80vh] lg:h-screen"
+          className="relative z-10 h-[85vh] lg:h-screen"
         >
           <HeroIii />
         </motion.div>
@@ -113,8 +113,8 @@ export default function Home() {
               backgroundImage:
                 "linear-gradient(to right,#4f4f4f2e 1px,transparent 1px),linear-gradient(to bottom,#4f4f4f2e 1px,transparent 1px)",
               backgroundSize: "14px 24px",
-              // maskImage:
-              //   "radial-gradient(ellipse 30% 20% at 50% 50%,#000 80%,transparent 100%)",
+              maskImage:
+                "radial-gradient(ellipse 30% 20% at 50% 50%,#000 80%,transparent 100%)",
               WebkitMaskImage:
                 "radial-gradient(ellipse 30% 20% at 50% 50%,#000 80%,transparent 100%)",
               zIndex: 2,
