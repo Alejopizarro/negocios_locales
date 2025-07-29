@@ -206,7 +206,7 @@ export default function Carousel({
       className={`relative overflow-hidden p-4 ${
         round
           ? "rounded-full border border-white"
-          : "rounded-[24px] border border-[#222]"
+          : "rounded-[24px] border bg-neutral-400/30 backdrop-blur-[1px] border-neutral-400/20"
       } ${baseWidth === "full" ? "w-full" : ""}`}
       style={{
         ...(baseWidth !== "full" && { width: `${baseWidth}px` }),
@@ -286,10 +286,10 @@ export default function Carousel({
                 currentIndex % items.length === index
                   ? round
                     ? "bg-white"
-                    : "bg-[#333333]"
+                    : "bg-neutral-900/90"
                   : round
-                  ? "bg-[#555]"
-                  : "bg-[rgba(51,51,51,0.4)]"
+                  ? "bg-neutral-400/20"
+                  : "bg-neutral-900/50"
               }`}
               animate={{
                 scale: currentIndex % items.length === index ? 1.2 : 1,

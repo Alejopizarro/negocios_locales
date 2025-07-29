@@ -18,7 +18,7 @@ const HeroIii = () => {
   }, [messages.length]);
 
   return (
-    <div className="h-screen flex items-center justify-center relative overflow-hidden">
+    <div className="h-full flex items-center justify-center relative overflow-hidden">
       {/* Ya no necesita imagen de fondo propia */}
       <div className="z-10 flex flex-col w-full items-center justify-center text-center px-4 py-8">
         <h1 className="flex flex-col w-full text-xl font-light text-slate-300">
@@ -31,7 +31,7 @@ const HeroIii = () => {
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentIndex}
-                  className="mt-6 absolute text-5xl font-semibold text-slate-50 whitespace-nowrap"
+                  className="mt-6 absolute text-4xl lg:text-5xl font-semibold text-slate-50 whitespace-nowrap"
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -50, opacity: 0 }}
