@@ -63,7 +63,10 @@ export default function Home() {
         <div className="fixed inset-0 bg-black/30 z-0" />
 
         {/* Hero con parallax */}
-        <motion.div style={{ y: heroY }} className="relative z-10 h-screen">
+        <motion.div
+          style={{ y: heroY }}
+          className="relative z-10 h-[90vh] lg:h-screen"
+        >
           <HeroIii />
         </motion.div>
 
@@ -76,24 +79,51 @@ export default function Home() {
         </motion.div>
 
         {/* About Us con parallax diferente */}
-        <motion.div className="bg-black relative z-10 py-8 lg:py-0 min-h-screen flex items-center">
-          <AboutUs />
+        <motion.div className="bg-slate-950 relative z-1 py-8 lg:py-4 min-h-screen flex items-center">
+          {/* Overlay grid background with mask, positioned absolutely */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right,#4f4f4f2e 1px,transparent 1px),linear-gradient(to bottom,#4f4f4f2e 1px,transparent 1px)",
+              backgroundSize: "14px 24px",
+              // maskImage:
+              //   "radial-gradient(ellipse 60% 50% at 50% 0%,#000 70%,transparent 100%)",
+              WebkitMaskImage:
+                "radial-gradient(ellipse 60% 50% at 50% 0%,#000 70%,transparent 100%)",
+              zIndex: 2,
+            }}
+          />
+          <div className="relative z-10 w-full">
+            <AboutUs />
+          </div>
         </motion.div>
 
         {/* HowAbout con parallax diferente */}
         <motion.div
           style={{ y: howAboutY }}
-          className="relative z-10 min-h-screen pt-20 flex justify-center items-center"
+          className="relative z-10 py-8 min-h-screen pt-24 flex justify-center items-center"
         >
           <HowAbout />
         </motion.div>
-      </div>
-
-      {/* Resto de componentes normales */}
-      <div className="relative z-20 bg-black">
-        <div className="max-w-6xl mx-auto px-4 py-8">
-          <Why />
-        </div>
+        <motion.div className="bg-slate-950 relative z-1 py-8 lg:py-4 min-h-screen flex items-center">
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right,#4f4f4f2e 1px,transparent 1px),linear-gradient(to bottom,#4f4f4f2e 1px,transparent 1px)",
+              backgroundSize: "14px 24px",
+              // maskImage:
+              //   "radial-gradient(ellipse 30% 20% at 50% 50%,#000 80%,transparent 100%)",
+              WebkitMaskImage:
+                "radial-gradient(ellipse 30% 20% at 50% 50%,#000 80%,transparent 100%)",
+              zIndex: 2,
+            }}
+          />
+          <div className="relative z-10 w-full">
+            <Why />
+          </div>
+        </motion.div>
       </div>
     </div>
   );

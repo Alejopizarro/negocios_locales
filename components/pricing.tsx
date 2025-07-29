@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import LiquidGlass from "./ui/liquid-glass";
 
 const Pricing = () => {
   return (
@@ -7,7 +8,7 @@ const Pricing = () => {
         Nuestros servicios
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 mt-4 gap-8">
-        <div className="bg-neutral-400/20 hover:bg-neutral-400/30 backdrop-blur-[1px] text-neutral-200 border-t-[0.25px] border-b-[0.25px] border-slate-50 transition rounded-lg shadow-lg p-6">
+        <LiquidGlass className="bg-neutral-400/10">
           <div className="flex flex-col space-y-2">
             <p className="text-slate-300 text-2xl">Básica</p>
             <p className="text-4xl font-bold text-slate-50">
@@ -59,9 +60,9 @@ const Pricing = () => {
               <span>Sin mantenimiento</span>
             </li>
           </ul>
-        </div>
-        <div className="bg-fuchsia-500/15 backdrop-blur-[1px] border-t-[0.25px] border-b-[0.25px] border-slate-50 text-slate-300 rounded-lg shadow-lg p-6">
-          <span className="absolute -translate-y-9 translate-x-28 px-2 py-1 rounded-lg text-xs bg-neutral-700/90 backdrop-blur-[1px] text-slate-100 border border-white/30 transition">
+        </LiquidGlass>
+        <LiquidGlass allowOverflow={true} className="bg-fuchsia-500/15">
+          <span className="absolute -translate-y-12 translate-x-24 px-4 py-1 rounded-lg text-md bg-neutral-700/90 backdrop-blur-[1px] text-slate-100 border border-white/30 transition">
             recomendado
           </span>
           <div className="flex flex-col space-y-2">
@@ -69,12 +70,12 @@ const Pricing = () => {
             <p className="text-4xl font-bold text-slate-50">
               550€ <span className="font-semibold text-sm">iva incluido</span>
             </p>
-            <h3 className="text-sm font-medium">
+            <h3 className="text-sm font-medium text-slate-300">
               Web Completa Optimizada - Sitio web de hasta 10 páginas con SEO
             </h3>
           </div>
           <hr className="my-4 h-[0.02rem] border-fuchsia-500/50" />
-          <ul className="space-y-2 text-sm font-light">
+          <ul className="space-y-2 text-sm font-light text-slate-300">
             <li className="flex items-center space-x-2">
               <span className="text-green-500">
                 <Check size={20} />
@@ -112,20 +113,20 @@ const Pricing = () => {
               <span>Sin mantenimiento</span>
             </li>
           </ul>
-        </div>
-        <div className="bg-indigo-400/30 backdrop-blur-[1px] border-b-[0.25px] border-t-[0.25px] border-slate-100 text-slate-300 rounded-lg shadow-xl p-6">
+        </LiquidGlass>
+        <LiquidGlass className="bg-indigo-500/15">
           <div className="flex flex-col space-y-2">
             <p className="text-2xl text-indigo-400">Pro</p>
             <p className="text-4xl font-bold text-slate-50">
               1100€ <span className="font-light text-sm">iva incluido</span>
             </p>
-            <h3 className="text-sm font-medium">
+            <h3 className="text-sm font-medium text-slate-300">
               Solución Digital Completa - Web avanzada con gestión y blog
               incluido
             </h3>
           </div>
           <hr className="my-4 h-[0.02rem] border-indigo-400/50 " />
-          <ul className="space-y-2 text-sm font-light">
+          <ul className="space-y-2 text-sm font-light text-slate-300">
             <li className="flex items-center space-x-2">
               <span className="text-green-500">
                 <Check size={20} />
@@ -163,7 +164,7 @@ const Pricing = () => {
               <span>30€ mantenimiento mensual</span>
             </li>
           </ul>
-        </div>
+        </LiquidGlass>
       </div>
     </div>
   );

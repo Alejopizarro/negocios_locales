@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import LiquidGlass from "./ui/liquid-glass";
 
 const HeroIii = () => {
   const messages = ["Presencia Digital", "Marca Personal", "Negocio"];
@@ -46,9 +47,9 @@ const HeroIii = () => {
             </div>
           </div>
         </h1>
-        <button className="mt-6 px-4 py-3 cursor-grab active:cursor-grabbing font-light rounded-full bg-neutral-400/20 hover:bg-neutral-400/30 backdrop-blur-[1px] text-neutral-200 border border-neutral-400/20 transition">
+        <LiquidGlass className="mt-6 px-4 py-3 cursor-grab active:cursor-grabbing font-light rounded-full bg-neutral-400/20 hover:bg-neutral-400/30 backdrop-blur-[1px] text-neutral-200 border border-neutral-400/20 transition">
           agendar consulta gratis
-        </button>
+        </LiquidGlass>
       </div>
     </div>
   );
