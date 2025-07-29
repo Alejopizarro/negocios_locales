@@ -62,7 +62,7 @@ const Pricing = () => {
           </ul>
         </LiquidGlass>
         <LiquidGlass allowOverflow={true} className="bg-fuchsia-500/15">
-          <span className="absolute -translate-y-12 translate-x-24 px-4 py-1 rounded-lg text-md bg-neutral-700/90 backdrop-blur-[1px] text-slate-100 border border-white/30 transition">
+          <span className="absolute -translate-y-12 translate-x-20 px-4 py-1 rounded-full text-md bg-neutral-700/90 backdrop-blur-[1px] text-slate-100 border border-white/30 transition">
             recomendado
           </span>
           <div className="flex flex-col space-y-2">

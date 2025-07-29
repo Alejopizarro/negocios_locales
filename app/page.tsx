@@ -65,7 +65,7 @@ export default function Home() {
         {/* Hero con parallax */}
         <motion.div
           style={{ y: heroY }}
-          className="relative z-10 h-[90vh] lg:h-screen"
+          className="relative z-10 h-[80vh] lg:h-screen"
         >
           <HeroIii />
         </motion.div>
@@ -102,11 +102,11 @@ export default function Home() {
         {/* HowAbout con parallax diferente */}
         <motion.div
           style={{ y: howAboutY }}
-          className="relative z-10 py-8 min-h-screen pt-24 flex justify-center items-center"
+          className="relative z-10 py-8 pt-24 flex justify-center items-center"
         >
           <HowAbout />
         </motion.div>
-        <motion.div className="bg-slate-950 relative z-1 py-8 lg:py-4 min-h-screen flex items-center">
+        <motion.div className="bg-slate-950 relative z-1 py-8 lg:py-4 flex items-center">
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
