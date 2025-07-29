@@ -31,7 +31,7 @@ const HeroIii = () => {
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentIndex}
-                  className="absolute text-5xl font-semibold text-slate-50 whitespace-nowrap"
+                  className="mt-6 absolute text-5xl font-semibold text-slate-50 whitespace-nowrap"
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -50, opacity: 0 }}
@@ -46,7 +46,7 @@ const HeroIii = () => {
             </div>
           </div>
         </h1>
-        <button className="mt-10 px-6 py-3 font-light rounded-full bg-neutral-400/20 hover:bg-neutral-400/30 backdrop-blur-[1px] text-neutral-200 border border-neutral-400/20 transition">
+        <button className="mt-6 px-4 py-3 cursor-grab active:cursor-grabbing font-light rounded-full bg-neutral-400/20 hover:bg-neutral-400/30 backdrop-blur-[1px] text-neutral-200 border border-neutral-400/20 transition">
           agendar consulta gratis
         </button>
       </div>

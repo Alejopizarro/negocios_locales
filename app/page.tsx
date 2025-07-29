@@ -5,9 +5,8 @@ import { useRef } from "react";
 import AboutUs from "@/components/about-us";
 import HeroIii from "@/components/hero-iii";
 import HowAbout from "@/components/how-about";
-import MobileFirst from "@/components/mobile-first";
 import Pricing from "@/components/pricing";
-import SeoLocal from "@/components/seo-local";
+import Why from "@/components/why";
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -24,18 +23,8 @@ export default function Home() {
   return (
     <div className="bg-black" ref={containerRef}>
       {/* Contenedor de las secciones con parallax */}
-      <div className="relative min-h-[200vh]">
-        {/* Fondo de estrellas completamente fijo */}
-        <div
-          className="fixed inset-0 z-0"
-          style={{
-            backgroundImage: "var(--stars)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed",
-          }}
-        />
+      <div className="relative min-h-[100vh]">
+        <div className="fixed inset-0 z-0 bg-[image:var(--stars-mobile)] lg:bg-[image:var(--stars)] bg-no-repeat bg-cover bg-center bg-fixed" />
 
         {/* Overlay para mejor contraste */}
         <div className="fixed inset-0 bg-black/30 z-0" />
@@ -48,7 +37,7 @@ export default function Home() {
         {/* Pricing con parallax diferente */}
         <motion.div
           style={{ y: pricingY }}
-          className="relative z-10 min-h-screen flex items-center"
+          className="relative z-10 flex items-center"
         >
           <Pricing />
         </motion.div>
@@ -68,9 +57,7 @@ export default function Home() {
       {/* Resto de componentes normales */}
       <div className="relative z-20 bg-black">
         <div className="max-w-6xl mx-auto px-4 py-8">
-          <MobileFirst />
-          <hr className="my-8 h-[0.05rem] bg-white shadow-2xl shadow-slate-50" />
-          <SeoLocal />
+          <Why />
         </div>
       </div>
     </div>

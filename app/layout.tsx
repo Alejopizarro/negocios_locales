@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Roboto_Condensed } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const roboto_condensed = Roboto_Condensed({
+const space_grotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={roboto_condensed.className}>{children}</body>
+      <body className={space_grotesk.className}>{children}</body>
     </html>
   );
 }

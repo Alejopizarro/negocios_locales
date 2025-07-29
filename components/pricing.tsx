@@ -2,7 +2,7 @@ import { Check } from "lucide-react";
 
 const Pricing = () => {
   return (
-    <div className="flex flex-col items-center justify-center max-w-6xl space-y-8 mx-auto px-4 py-8 lg:py-16">
+    <div className="flex flex-col items-center justify-center max-w-6xl space-y-8 mx-auto px-4 py-8">
       <h2 className="text-4xl font-semibold text-slate-50">
         Nuestros servicios
       </h2>
