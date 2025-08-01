@@ -53,20 +53,20 @@ export default function Hero() {
                 </span>{" "}
                 que realmente venden
               </h1>
-              <div className="grid grid-cols-3 gap-2 text-xs lg:text-sm font-medium text-center lowercase text-gray-900">
-                <span className="px-2 py-1 rounded-md border-1 border-cyan-500 text-cyan-300 font-medium">
+              <div className="grid grid-cols-3 gap-2 text-sm lg:text-md font-medium text-center mt-2 lowercase text-gray-900">
+                <span className="px-2 py-1 rounded-md border-1 border-slate-300 text-slate-100 font-medium">
                   Diseño moderno
                 </span>
-                <span className="px-2 py-1 rounded-md border-1 border-cyan-500 text-cyan-300 font-medium">
+                <span className="px-2 py-1 rounded-md border-1 border-slate-300 text-slate-100 font-medium">
                   Rendimiento
                 </span>
-                <span className="px-2 py-1 rounded-md border-1 border-cyan-500 text-cyan-300 font-medium">
+                <span className="px-2 py-1 rounded-md border-1 border-slate-300 text-slate-100 font-medium">
                   Posicionamiento
                 </span>
               </div>
               <Button
                 size="lg"
-                className="w-full lg:max-w-xs bg-amber-400 cursor-pointer mt-4 text-white text-lg"
+                className="w-full lg:max-w-xs bg-amber-400 cursor-pointer my-2 text-white text-lg"
               >
                 <CalendarIcon />
                 Agenda una consulta gratuita
