@@ -34,7 +34,7 @@ export default function Hero() {
           />
 
           <div className="flex flex-col justify-center h-full space-y-4 lg:space-y-8 max-w-4xl mx-auto tracking-tight leading-none text-slate-200 order-1 lg:order-2">
-            <p className="text-md lg:text-xl">
+            <p className="text-lg lg:text-xl">
               ¿Quiéres hacer crecer la{" "}
               <span className="text-slate-50 font-semibold">
                 Presencia Digital

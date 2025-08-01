@@ -9,19 +9,27 @@ interface UseScrollProgressOptions {
    * Si debe calcular progreso individual por elemento o el mismo para todos
    */
   individualProgress?: boolean;
+  /**
+   * Referencia externa del contenedor (opcional)
+   */
+  containerRef?: React.RefObject<HTMLDivElement | null>;
 }
 
 export function useScrollProgress({
   itemCount,
   individualProgress = false,
+  containerRef: externalRef,
 }: UseScrollProgressOptions) {
   const [progresses, setProgresses] = useState<Map<number, number>>(new Map());
-  const containerRef = useRef<HTMLDivElement>(null);
+  const internalRef = useRef<HTMLDivElement>(null);
+
+  // Usar la ref externa si existe, sino la interna
+  const effectiveRef = externalRef || internalRef;
 
   useEffect(() => {
     const handleScroll = () => {
-      if (containerRef.current) {
-        const containerRect = containerRef.current.getBoundingClientRect();
+      if (effectiveRef.current) {
+        const containerRect = effectiveRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
 
         let progress = 0;
@@ -36,9 +44,8 @@ export function useScrollProgress({
         const newProgresses = new Map<number, number>();
 
         if (individualProgress) {
-          // Lógica para progreso individual por elemento (si se necesita en el futuro)
+          // Lógica para progreso individual por elemento
           for (let i = 0; i < itemCount; i++) {
-            // Aquí se podría implementar lógica más compleja para cada elemento
             newProgresses.set(i, progress);
           }
         } else {
@@ -58,10 +65,10 @@ export function useScrollProgress({
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [itemCount, individualProgress]);
+  }, [itemCount, individualProgress, effectiveRef]);
 
   return {
     progresses,
-    containerRef,
+    containerRef: internalRef, // Siempre devolver la ref interna para casos sin ref externa
   };
 }

@@ -31,13 +31,15 @@ export default function How() {
             aparezca entre los primeros resultados y que te ayude a captar más
             clientes.
           </p>
-          <ul className="flex flex-col lg:flex-row justify-center items-center mt-4 px-2 gap-8">
+          <ul className="flex flex-col lg:flex-row justify-start items-center lg:justify-center lg:items-start mt-4 px-2 gap-8">
             <li className="flex flex-col space-y-4">
-              <div className="flex items-center gap-4">
-                <span className="border border-slate-50 px-2 py-1 rounded-full hover:bg-slate-50 hover:text-cyan-800 transition-colors">
+              <div className="flex items-center gap-2">
+                <span className="border border-slate-50 self-center px-2 py-1 rounded-full hover:bg-slate-50 hover:text-cyan-800 transition-colors">
                   1
                 </span>
-                <h3 className="text-lg font-semibold">Análizamos tu negocio</h3>
+                <h3 className="text-lg font-semibold leading-4.5">
+                  Análizamos tu negocio
+                </h3>
               </div>
               <p className="text-sm text-slate-300">
                 Evaluamos tu negocio y objetivos para crear una web a medida con
@@ -46,11 +48,13 @@ export default function How() {
             </li>
             <ChevronRight className="hidden lg:block text-slate-50" size={80} />
             <li className="flex flex-col space-y-4">
-              <div className="flex items-center gap-4">
-                <span className="border border-slate-50 px-2 py-1 rounded-full hover:bg-slate-50 hover:text-cyan-800 transition-colors">
+              <div className="flex items-center gap-2">
+                <span className="border border-slate-50 self-center px-2 py-1 rounded-full hover:bg-slate-50 hover:text-cyan-800 transition-colors">
                   2
                 </span>
-                <h3 className="text-lg font-semibold">Diseñamos tu web</h3>
+                <h3 className="text-lg font-semibold leading-4.5">
+                  Diseñamos tu web
+                </h3>
               </div>
               <p className="text-sm text-slate-300">
                 Creamos un diseño moderno y profesional que refleje la identidad
@@ -60,11 +64,11 @@ export default function How() {
             </li>
             <ChevronRight className="hidden lg:block text-slate-50" size={80} />
             <li className="flex flex-col space-y-4">
-              <div className="flex items-center gap-4">
-                <span className="border border-slate-50 px-2 py-1 rounded-full hover:bg-slate-50 hover:text-cyan-800 transition-colors">
+              <div className="flex items-center gap-2">
+                <span className="border border-slate-50 self-center px-2 py-1 rounded-full hover:bg-slate-50 hover:text-cyan-800 transition-colors">
                   3
                 </span>
-                <h3 className="text-lg font-semibold">
+                <h3 className="text-lg font-semibold leading-4.5">
                   Optimizamos para Google
                 </h3>
               </div>
@@ -75,16 +79,32 @@ export default function How() {
             </li>
             <ChevronRight className="hidden lg:block text-slate-50" size={80} />
             <li className="flex flex-col space-y-4">
-              <div className="flex items-center gap-4">
-                <span className="border border-slate-50 px-2 py-1 rounded-full hover:bg-slate-50 hover:text-cyan-800 transition-colors">
+              <div className="flex items-center gap-2">
+                <span className="border border-slate-50 self-center px-2 py-1 rounded-full hover:bg-slate-50 hover:text-cyan-800 transition-colors">
                   4
                 </span>
-                <h3 className="text-lg font-semibold">Lanzamos tu web</h3>
+                <h3 className="text-lg leading-4.5 font-semibold">
+                  Lanzamos tu página web
+                </h3>
               </div>
               <p className="text-sm text-slate-300">
                 Publicamos tu web y te proporcionamos las herramientas
                 necesarias para que puedas gestionarla y seguir mejorando tu
                 presencia online.
+              </p>
+            </li>
+            <li className="flex flex-col space-y-4">
+              <div className="flex items-center gap-2">
+                <span className="border border-slate-50 px-2 py-1 rounded-full self-center hover:bg-slate-50 hover:text-cyan-800 transition-colors">
+                  5
+                </span>
+                <h3 className="text-lg font-semibold leading-4.5">
+                  Seguimiento y soporte
+                </h3>
+              </div>
+              <p className="text-sm text-slate-300">
+                Ofrecemos soporte continuo y análisis de resultados para
+                optimizar tu web y asegurar que sigas captando clientes.
               </p>
             </li>
           </ul>

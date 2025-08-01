@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 
 interface BarConfig {
@@ -26,7 +25,7 @@ interface BarsProps {
   /**
    * Contenedor de referencia externo (opcional)
    */
-  externalContainerRef: React.RefObject<HTMLDivElement | null>;
+  externalContainerRef?: React.RefObject<HTMLDivElement | null>;
 }
 
 const DEFAULT_BARS: BarConfig[] = [
@@ -47,10 +46,8 @@ export default function Bars({
 }: BarsProps) {
   const { progresses, containerRef } = useScrollProgress({
     itemCount: barsConfig.length,
+    containerRef: externalContainerRef, // Pasar la ref externa directamente
   });
-
-  // Usar la referencia externa si se proporciona, sino usar la interna
-  const effectiveContainerRef = externalContainerRef || containerRef;
 
   const getPositionClasses = () => {
     switch (position) {
@@ -68,20 +65,22 @@ export default function Bars({
   };
 
   const getBarClasses = (bar: BarConfig) => {
+    // Clases fijas de Tailwind - NO dinámicas
     const baseClasses = `
       ${bar.color} 
       h-2 
       ${bar.width} 
       hover:scale-x-110 
       transition-transform
-      duration-75
-      lg:duration-${transitionDuration}
+      duration-300
       ease-out
-      transform
     `;
 
-    return baseClasses;
+    return baseClasses.trim();
   };
+
+  // Debug: Agregar console.log para verificar valores
+  console.log("Progresses:", Array.from(progresses.entries()));
 
   return (
     <>
@@ -99,6 +98,11 @@ export default function Bars({
           const scaleValue = 1 + progress * maxScaleFactor;
           const transformOrigin = position === "right" ? "right" : "left";
 
+          // Debug: Console log para cada barra
+          console.log(
+            `Bar ${index}: progress=${progress}, scaleValue=${scaleValue}`
+          );
+
           return (
             <div
               key={index}
@@ -107,6 +111,7 @@ export default function Bars({
               style={{
                 transformOrigin: transformOrigin,
                 transform: `scaleX(${scaleValue})`,
+                transitionDuration: `${transitionDuration}ms`, // Duración CSS personalizada
               }}
             />
           );
