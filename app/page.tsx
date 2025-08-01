@@ -21,7 +21,7 @@ const Page = () => {
       <Pricing />
       <div
         ref={containerRef}
-        className="min-h-screen flex flex-col justify-evenly"
+        className="lg:min-h-screen flex flex-col justify-evenly"
       >
         {" "}
         <div className="self-end">

@@ -29,7 +29,7 @@ const Opinions = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div ref={containerRef} className="min-h-screen">
+    <div ref={containerRef} className="lg:min-h-screen">
       <div className="self-end">
         <div className="flex flex-col space-y-1 items-end">
           <div className="flex space-x-2">

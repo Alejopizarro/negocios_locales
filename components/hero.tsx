@@ -1,105 +1,19 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import { CalendarIcon } from "lucide-react";
 import Image from "next/image";
+import Bars from "./ui/bars";
+import { useRef } from "react";
 
 export default function Hero() {
-  const [visibleBars, setVisibleBars] = useState<Set<number>>(new Set());
-  // Removed unused scrollDirection state
-  const [barProgresses, setBarProgresses] = useState<Map<number, number>>(
-    new Map()
-  );
   const containerRef = useRef<HTMLDivElement>(null);
-  const lastScrollY = useRef(0);
-
-  useEffect(() => {
-    // Intersection Observer para detectar qué barras están visibles
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const barIndex = parseInt(
-            (entry.target as HTMLElement).dataset.barIndex || "0"
-          );
-          if (entry.isIntersecting) {
-            setVisibleBars((prev) => new Set([...prev, barIndex]));
-          } else {
-            setVisibleBars((prev) => {
-              const newSet = new Set(prev);
-              newSet.delete(barIndex);
-              return newSet;
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    // Observar todas las barras
-    const bars =
-      containerRef.current?.querySelectorAll<HTMLElement>("[data-bar-index]");
-    bars?.forEach((bar: HTMLElement) => observer.observe(bar));
-
-    // 🎯 NUEVA LÓGICA: Calcular progreso basado en posición del contenedor
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      lastScrollY.current = currentScrollY;
-
-      // 📊 Calcular progreso basado en el contenedor completo
-      if (containerRef.current) {
-        const containerRect = containerRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-
-        // 🧮 Lógica del progreso:
-        // Progreso 0 = contenedor arriba de todo (top = 0)
-        // Progreso 1 = contenedor completamente fuera por abajo (bottom < 0)
-
-        let progress = 0;
-
-        if (containerRect.top <= 0) {
-          // El contenedor ha empezado a salir por arriba
-          const containerHeight = containerRect.height;
-          const totalScrollDistance = windowHeight + containerHeight;
-          const scrolled = -containerRect.top;
-
-          // Progreso de 0 a 1 basado en cuánto ha scrolleado
-          progress = Math.min(1, scrolled / totalScrollDistance);
-        }
-
-        // Aplicar el mismo progreso a todas las barras visibles
-        const newProgresses = new Map<number, number>();
-        visibleBars.forEach((index) => {
-          newProgresses.set(index, progress);
-        });
-
-        setBarProgresses(newProgresses);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    // Ejecutar una vez al montar para calcular posiciones iniciales
-    handleScroll();
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [visibleBars]); // Dependencia de visibleBars para recalcular
-
-  const bars = [
-    { width: "w-24", color: "bg-cyan-300" },
-    { width: "w-32", color: "bg-cyan-500" },
-    { width: "w-48", color: "bg-cyan-300" },
-    { width: "w-32", color: "bg-cyan-300" },
-    { width: "w-64", color: "bg-cyan-500" },
-    { width: "w-48", color: "bg-cyan-300" },
-  ];
 
   return (
     <div>
-      <div ref={containerRef} className="h-screen flex flex-col justify-evenly">
+      <div
+        ref={containerRef}
+        className="lg:min-h-screen flex flex-col justify-evenly"
+      >
         <div className="self-end">
           <div className="flex flex-col space-y-1 items-end">
             <div className="flex space-x-2">
@@ -156,37 +70,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col space-y-1">
-          {bars.map((bar, index) => {
-            const progress = barProgresses.get(index) || 0;
-
-            // 🎨 Calcular scale basado en progreso del contenedor
-            const scaleValue = 1 + progress * 0.5; // Empieza en 1, máximo 1.5
-            const transformOrigin = "left"; // Siempre crece hacia la derecha
-
-            return (
-              <div
-                key={index}
-                data-bar-index={index}
-                className={`
-                ${bar.color} 
-                h-2 
-                ${bar.width} 
-                hover:scale-x-110 
-                transition-transform
-                duration-75
-                lg:duration-300
-                ease-out
-                transform
-              `}
-                style={{
-                  transformOrigin: transformOrigin,
-                  transform: `scaleX(${scaleValue})`,
-                }}
-              />
-            );
-          })}
-        </div>
+        <Bars />
       </div>
     </div>
   );

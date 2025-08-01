@@ -8,7 +8,10 @@ export default function How() {
 
   return (
     <div>
-      <div ref={containerRef} className="h-screen flex flex-col justify-evenly">
+      <div
+        ref={containerRef}
+        className="lg:min-h-screen flex flex-col justify-evenly"
+      >
         <div className="self-end">
           <div className="flex flex-col space-y-1 items-end">
             <div className="flex space-x-2">
