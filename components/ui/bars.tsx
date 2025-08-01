@@ -26,7 +26,7 @@ interface BarsProps {
   /**
    * Contenedor de referencia externo (opcional)
    */
-  externalContainerRef?: React.RefObject<HTMLDivElement> | null;
+  externalContainerRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const DEFAULT_BARS: BarConfig[] = [

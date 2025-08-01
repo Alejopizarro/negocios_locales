@@ -9,7 +9,7 @@ const Pricing = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 mt-4 gap-8">
         <div className="bg-neutral-400/40 px-4 py-6 rounded-lg h-fit border border-neutral-400/50">
           <div className="flex flex-col space-y-2">
-            <p className="text-slate-300 text-2xl">Posicionamiento</p>
+            <p className="text-slate-300 text-2xl">Optimización</p>
             <p className="text-4xl font-bold text-slate-50">
               89€
               <span className="font-semibold text-slate-300 text-sm">
@@ -53,7 +53,7 @@ const Pricing = () => {
         </div>
         <div className="bg-indigo-500/40 px-4 py-6 rounded-lg h-fit border border-neutral-400/50">
           <div className="flex flex-col space-y-2">
-            <p className="text-2xl text-indigo-500">Página Web</p>
+            <p className="text-2xl text-indigo-400">Página Web</p>
             <p className="text-4xl font-bold text-slate-50">
               799€{" "}
               <span className="font-semibold text-sm text-slate-300">

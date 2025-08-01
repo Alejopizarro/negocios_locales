@@ -90,7 +90,7 @@ export default function How() {
           </ul>
         </div>
 
-        <Bars />
+        <Bars externalContainerRef={containerRef} />
       </div>
     </div>
   );

@@ -51,7 +51,7 @@ const Opinions = () => {
           <Carousel items={OpinionsItems} />
         </div>
       </div>
-      <Bars />
+      <Bars externalContainerRef={containerRef} />
     </div>
   );
 };
