@@ -34,8 +34,12 @@ export default function Hero() {
           />
 
           <div className="flex flex-col justify-center h-full space-y-4 lg:space-y-8 max-w-4xl mx-auto tracking-tight leading-none text-slate-200 order-1 lg:order-2">
-            <p className="text-xl">
-              ¿Tu negocio se está perdiendo clientes por no aparecer en Google?
+            <p className="text-md lg:text-xl">
+              ¿Quiéres hacer crecer la{" "}
+              <span className="text-slate-50 font-semibold">
+                Presencia Digital
+              </span>{" "}
+              de tu negocio?
             </p>
             <div className="space-y-4">
               <h1 className="text-[2.75rem] lg:text-4xl font-extralight">
@@ -49,7 +53,7 @@ export default function Hero() {
                 </span>{" "}
                 que realmente venden
               </h1>
-              <div className="grid grid-cols-3 gap-2 text-sm font-medium text-center lowercase text-gray-900">
+              <div className="grid grid-cols-3 gap-2 text-xs lg:text-sm font-medium text-center lowercase text-gray-900">
                 <span className="px-2 py-1 rounded-md border-1 border-cyan-500 text-cyan-300 font-medium">
                   Diseño moderno
                 </span>
@@ -70,7 +74,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
-        <Bars />
+        <Bars externalContainerRef={containerRef} />
       </div>
     </div>
   );
