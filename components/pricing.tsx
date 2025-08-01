@@ -1,5 +1,4 @@
 import { Check } from "lucide-react";
-import LiquidGlass from "./ui/liquid-glass";
 
 const Pricing = () => {
   return (
@@ -8,17 +7,20 @@ const Pricing = () => {
         Nuestros servicios
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 mt-4 gap-8">
-        <LiquidGlass className="bg-neutral-400/10">
+        <div className="bg-neutral-400/40 px-4 py-6 rounded-lg h-fit border border-neutral-400/50">
           <div className="flex flex-col space-y-2">
-            <p className="text-slate-300 text-2xl">Básica</p>
+            <p className="text-slate-300 text-2xl">Posicionamiento</p>
             <p className="text-4xl font-bold text-slate-50">
-              150€{" "}
-              <span className="font-semibold text-slate-50 text-sm">
-                iva incluido
+              89€
+              <span className="font-semibold text-slate-300 text-sm">
+                /mes + iva
               </span>
             </p>
-            <h3 className="text-sm font-medium text-slate-300">
-              Presencia Web Básica - Landing page profesional para empezar
+            <p className="text-slate-300 text-xs border px-2 py-1 w-fit border-slate-300 rounded-full">
+              sin permanencia
+            </p>
+            <h3 className="text-md font-semibold text-slate-50">
+              Optimizaciones web y SEO mensual
             </h3>
           </div>
           <hr className="my-4 h-[0.02rem] border-white/20" />
@@ -27,54 +29,50 @@ const Pricing = () => {
               <span className="text-green-500">
                 <Check size={20} />
               </span>
-              <span>Diseño moderno y profesional</span>
+              <span>Actualizaciones de motor, plugins y temas</span>
             </li>
             <li className="flex items-center space-x-2">
               <span className="text-green-500">
                 <Check size={20} />
               </span>
-              <span>Optimización para móviles</span>
+              <span>Optimizacion de H1, H2, H3 y H4</span>
             </li>
             <li className="flex items-center space-x-2">
               <span className="text-green-500">
                 <Check size={20} />
               </span>
-              <span>Velocidad de carga optimizada</span>
+              <span>Metaetiquetas en Clave SEO</span>
             </li>
             <li className="flex items-center space-x-2">
               <span className="text-green-500">
                 <Check size={20} />
               </span>
-              <span>Formulario de contacto</span>
-            </li>
-            <li className="flex items-center space-x-2">
-              <span className="text-green-500">
-                <Check size={20} />
-              </span>
-              <span>Dominio aparte</span>
-            </li>
-            <li className="flex items-center space-x-2">
-              <span className="text-green-500">
-                <Check size={20} />
-              </span>
-              <span>Sin mantenimiento</span>
+              <span>Analisis de UX/UI</span>
             </li>
           </ul>
-        </LiquidGlass>
-        <LiquidGlass allowOverflow={true} className="bg-fuchsia-500/15">
-          <span className="absolute -translate-y-12 translate-x-20 px-4 py-1 rounded-full text-md bg-neutral-700/90 backdrop-blur-[1px] text-slate-100 border border-white/30 transition">
-            recomendado
-          </span>
+        </div>
+        <div className="bg-indigo-500/40 px-4 py-6 rounded-lg h-fit border border-neutral-400/50">
           <div className="flex flex-col space-y-2">
-            <p className="text-2xl text-fuchsia-500">Estandár</p>
+            <p className="text-2xl text-indigo-500">Página Web</p>
             <p className="text-4xl font-bold text-slate-50">
-              550€ <span className="font-semibold text-sm">iva incluido</span>
+              799€{" "}
+              <span className="font-semibold text-sm text-slate-300">
+                + iva
+              </span>
             </p>
-            <h3 className="text-sm font-medium text-slate-300">
-              Web Completa Optimizada - Sitio web de hasta 10 páginas con SEO
+            <div className="flex items-center space-x-2">
+              <p className="text-slate-300 text-xs border px-2 py-1 w-fit border-slate-300 rounded-full">
+                sin permanencia
+              </p>
+              <p className="text-slate-300 text-xs border px-2 py-1 w-fit border-slate-300 rounded-full">
+                dominio no incluido
+              </p>
+            </div>
+            <h3 className="text-sm font-semibold text-slate-50">
+              Web Completa Optimizada
             </h3>
           </div>
-          <hr className="my-4 h-[0.02rem] border-fuchsia-500/50" />
+          <hr className="my-4 h-[0.02rem] border-indigo-500/50" />
           <ul className="space-y-2 text-sm font-light text-slate-300">
             <li className="flex items-center space-x-2">
               <span className="text-green-500">
@@ -100,32 +98,43 @@ const Pricing = () => {
               </span>
               <span>Formulario de contacto</span>
             </li>
-            <li className="flex items-center space-x-2">
-              <span className="text-green-500">
-                <Check size={20} />
-              </span>
-              <span>Dominio aparte</span>
-            </li>
-            <li className="flex items-center space-x-2">
-              <span className="text-green-500">
-                <Check size={20} />
-              </span>
-              <span>Sin mantenimiento</span>
-            </li>
           </ul>
-        </LiquidGlass>
-        <LiquidGlass className="bg-indigo-500/15">
-          <div className="flex flex-col space-y-2">
-            <p className="text-2xl text-indigo-400">Pro</p>
-            <p className="text-4xl font-bold text-slate-50">
-              1100€ <span className="font-light text-sm">iva incluido</span>
+        </div>
+        <div className="bg-fuchsia-500/40 px-4 py-6 border border-slate-300 rounded-lg">
+          <span className="absolute -translate-y-10 translate-x-24 px-4 py-1 rounded-full text-md bg-neutral-700/90 backdrop-blur-[1px] text-slate-100 border border-white/30 transition">
+            recomendado
+          </span>
+          <div className="flex flex-col space-y-4">
+            <p className="text-2xl text-fuchsia-400">
+              Pack Premium{" "}
+              <span className="font-light text-sm">(Todo incluido)</span>
             </p>
-            <h3 className="text-sm font-medium text-slate-300">
+            <p className="text-4xl font-bold text-slate-50">
+              120€
+              <span className="font-light text-sm text-slate-300">
+                /mes + iva
+              </span>
+            </p>
+            <div className="flex items-center flex-wrap gap-2">
+              <p className="text-slate-300 text-xs border px-2 py-1 w-fit border-slate-300 rounded-full">
+                permanencia de un año
+              </p>
+              <p className="text-slate-300 text-xs border px-2 py-1 w-fit border-slate-300 rounded-full">
+                dominio incluido
+              </p>
+              <p className="text-slate-300 text-xs border px-2 py-1 w-fit border-slate-300 rounded-full">
+                sin coste de mantenimiento
+              </p>
+              <p className="text-slate-300 text-xs border px-2 py-1 w-fit border-slate-300 rounded-full">
+                correos corporativos
+              </p>
+            </div>
+            <h3 className="text-sm font-semibold text-slate-50">
               Solución Digital Completa - Web avanzada con gestión y blog
               incluido
             </h3>
           </div>
-          <hr className="my-4 h-[0.02rem] border-indigo-400/50 " />
+          <hr className="my-4 h-[0.02rem] border-fuchsia-400/50 " />
           <ul className="space-y-2 text-sm font-light text-slate-300">
             <li className="flex items-center space-x-2">
               <span className="text-green-500">
@@ -149,22 +158,34 @@ const Pricing = () => {
               <span className="text-green-500">
                 <Check size={20} />
               </span>
+              <span>Gestión de Reseñas</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="text-green-500">
+                <Check size={20} />
+              </span>
               <span>Blog con articulos SEO</span>
             </li>
             <li className="flex items-center space-x-2">
               <span className="text-green-500">
                 <Check size={20} />
               </span>
-              <span>Dominio incluido</span>
+              <span>Generación de imágenes y textos</span>
             </li>
             <li className="flex items-center space-x-2">
               <span className="text-green-500">
                 <Check size={20} />
               </span>
-              <span>30€ mantenimiento mensual</span>
+              <span>Formulario de contacto</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="text-green-500">
+                <Check size={20} />
+              </span>
+              <span>Hasta 5 Correos corpartivos</span>
             </li>
           </ul>
-        </LiquidGlass>
+        </div>
       </div>
     </div>
   );

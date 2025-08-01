@@ -1,130 +1,46 @@
 "use client";
-
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef, useEffect, useState } from "react";
 import AboutUs from "@/components/about-us";
-import HeroIii from "@/components/hero-iii";
-import HowAbout from "@/components/how-about";
+import { FormController } from "@/components/form-controller";
+import Hero from "@/components/hero";
+import How from "@/components/how";
+import Opinions from "@/components/opinions";
 import Pricing from "@/components/pricing";
+import Bars from "@/components/ui/bars";
 import Why from "@/components/why";
+import { useRef } from "react";
 
-export default function Home() {
-  const containerRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  // Detectar si es mobile
-  useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
-
-    checkIsMobile();
-    window.addEventListener("resize", checkIsMobile);
-    return () => window.removeEventListener("resize", checkIsMobile);
-  }, []);
-
-  // Diferentes velocidades de parallax
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const pricingY = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  const howAboutY = useTransform(scrollYProgress, [0, 1], [0, -100]);
-
+const Page = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
   return (
-    <div className="bg-black" ref={containerRef}>
-      {/* Contenedor de las secciones con parallax */}
-      <div className="relative min-h-[100vh]">
-        <div
-          className={`fixed inset-0 z-0 bg-no-repeat bg-cover bg-center ${
-            isMobile
-              ? "bg-[image:var(--stars-mobile)]"
-              : "bg-[image:var(--stars)]"
-          }`}
-          style={{
-            // Usar position y background-size en lugar de bg-fixed
-            backgroundAttachment: isMobile ? "scroll" : "fixed",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            // Para mobile: asegurar que el fondo cubra toda la altura
-            ...(isMobile && {
-              height: "100vh",
-              width: "100vw",
-              transform: "translateZ(0)", // Force hardware acceleration
-              willChange: "transform",
-            }),
-          }}
-        />
-
-        {/* Overlay para mejor contraste */}
-        <div className="fixed inset-0 bg-black/30 z-0" />
-
-        {/* Hero con parallax */}
-        <motion.div
-          style={{ y: heroY }}
-          className="relative z-10 h-[85vh] lg:h-screen"
-        >
-          <HeroIii />
-        </motion.div>
-
-        {/* Pricing con parallax diferente */}
-        <motion.div
-          style={{ y: pricingY }}
-          className="relative z-10 flex items-center"
-        >
-          <Pricing />
-        </motion.div>
-
-        {/* About Us con parallax diferente */}
-        <motion.div className="bg-slate-950 relative z-1 py-8 lg:py-4 min-h-screen flex items-center">
-          {/* Overlay grid background with mask, positioned absolutely */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right,#4f4f4f2e 1px,transparent 1px),linear-gradient(to bottom,#4f4f4f2e 1px,transparent 1px)",
-              backgroundSize: "14px 24px",
-              // maskImage:
-              //   "radial-gradient(ellipse 60% 50% at 50% 0%,#000 70%,transparent 100%)",
-              WebkitMaskImage:
-                "radial-gradient(ellipse 60% 50% at 50% 0%,#000 70%,transparent 100%)",
-              zIndex: 2,
-            }}
-          />
-          <div className="relative z-10 w-full">
-            <AboutUs />
+    <div className="bg-gradient-to-b from-cyan-700 to-cyan-900 py-8">
+      <Hero />
+      <AboutUs />
+      <How />
+      <Why />
+      <Opinions />
+      <Pricing />
+      <div
+        ref={containerRef}
+        className="min-h-screen flex flex-col justify-evenly"
+      >
+        {" "}
+        <div className="self-end">
+          <div className="flex flex-col space-y-1 items-end">
+            <div className="flex space-x-2">
+              <div className="bg-cyan-300 h-2 w-12" />
+              <div className="bg-cyan-300 h-2 w-32" />
+            </div>
+            <div className="bg-cyan-500 h-2 w-24" />
           </div>
-        </motion.div>
-
-        {/* HowAbout con parallax diferente */}
-        <motion.div
-          style={{ y: howAboutY }}
-          className="relative z-10 py-8 pt-24 flex justify-center items-center"
-        >
-          <HowAbout />
-        </motion.div>
-        <motion.div className="bg-slate-950 relative z-1 py-8 lg:py-4 flex items-center">
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right,#4f4f4f2e 1px,transparent 1px),linear-gradient(to bottom,#4f4f4f2e 1px,transparent 1px)",
-              backgroundSize: "14px 24px",
-              maskImage:
-                "radial-gradient(ellipse 30% 20% at 50% 50%,#000 80%,transparent 100%)",
-              WebkitMaskImage:
-                "radial-gradient(ellipse 30% 20% at 50% 50%,#000 80%,transparent 100%)",
-              zIndex: 2,
-            }}
-          />
-          <div className="relative z-10 w-full">
-            <Why />
-          </div>
-        </motion.div>
+        </div>
+        <div className="flex flex-col p-8 lg:my-8 m-4 items-center justify-center rounded-lg shadow-lg bg-cyan-500/40 border border-neutral-300/40 max-w-3xl lg:mx-auto text-slate-50">
+          <p className="text-2xl font-semibold mb-8">Formulario de Contacto</p>
+          <FormController />
+        </div>
+        <Bars />
       </div>
     </div>
   );
-}
+};
+
+export default Page;

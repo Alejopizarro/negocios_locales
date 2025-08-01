@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Host_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const space_grotesk = Space_Grotesk({
+const host_grotesk = Host_Grotesk({
   subsets: ["latin"],
 });
 
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={space_grotesk.className}>{children}</body>
+      <body className={host_grotesk.className}>{children}</body>
     </html>
   );
 }

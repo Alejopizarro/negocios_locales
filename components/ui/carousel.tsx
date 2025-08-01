@@ -1,21 +1,20 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-
 import { useEffect, useState, useRef } from "react";
-import { motion, PanInfo, useMotionValue, useTransform } from "motion/react";
+import { motion, PanInfo, useMotionValue, useTransform } from "framer-motion";
 import React, { JSX } from "react";
-import Image from "next/image";
-
+import { User } from "lucide-react";
 export interface CarouselItem {
   title: string;
   description: string;
+  user: string;
   id: number;
-  image: string;
+  icon: React.ReactNode;
 }
 
 export interface CarouselProps {
   items?: CarouselItem[];
-  baseWidth?: number | "full"; // Agregamos opción "full"
+  baseWidth?: number;
   autoplay?: boolean;
   autoplayDelay?: number;
   pauseOnHover?: boolean;
@@ -28,48 +27,47 @@ const DEFAULT_ITEMS: CarouselItem[] = [
     title: "Text Animations",
     description: "Cool text animations for your projects.",
     id: 1,
-    image: "/mobile-web.jpg",
+    icon: <User className="h-[21px] w-[21px] text-black" />,
+    user: "Federico, Seguros Fuengirola",
   },
   {
     title: "Animations",
     description: "Smooth animations for your projects.",
     id: 2,
-    image: "/mobile-web.jpg",
+    icon: <User className="h-[21px] w-[21px] text-black" />,
+    user: "Federico, Seguros Fuengirola",
   },
   {
     title: "Components",
     description: "Reusable components for your projects.",
     id: 3,
-    image: "/mobile-web.jpg",
+    icon: <User className="h-[21px] w-[21px] text-black" />,
+    user: "Federico, Seguros Fuengirola",
   },
   {
     title: "Backgrounds",
     description: "Beautiful backgrounds and patterns for your projects.",
     id: 4,
-    image: "/mobile-web.jpg",
+    icon: <User className="h-[21px] w-[21px] text-black" />,
+    user: "Federico, Seguros Fuengirola",
   },
   {
     title: "Common UI",
     description: "Common UI components are coming soon!",
     id: 5,
-    image: "/mobile-web.jpg",
+    icon: <User className="h-[21px] w-[21px] text-black" />,
+    user: "Federico, Seguros Fuengirola",
   },
 ];
 
 const DRAG_BUFFER = 0;
 const VELOCITY_THRESHOLD = 500;
 const GAP = 16;
-
-// Corregido: Especificar correctamente el tipo de transición
-const SPRING_OPTIONS = {
-  type: "spring" as const,
-  stiffness: 300,
-  damping: 30,
-};
+const SPRING_OPTIONS = { type: "spring" as const, stiffness: 300, damping: 30 };
 
 export default function Carousel({
   items = DEFAULT_ITEMS,
-  baseWidth = "full", // Cambiar default a "full"
+  baseWidth, // Removemos el valor por defecto
   autoplay = false,
   autoplayDelay = 3000,
   pauseOnHover = false,
@@ -77,13 +75,10 @@ export default function Carousel({
   round = false,
 }: CarouselProps): JSX.Element {
   const containerPadding = 16;
+  const [containerWidth, setContainerWidth] = useState<number>(300); // Estado para el ancho del contenedor
 
-  // Calcular el ancho dinámicamente
-  const [containerWidth, setContainerWidth] = useState<number>(300);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Determinar el ancho efectivo
-  const effectiveWidth = baseWidth === "full" ? containerWidth : baseWidth;
+  // Calculamos el ancho efectivo
+  const effectiveWidth = baseWidth || containerWidth;
   const itemWidth = effectiveWidth - containerPadding * 2;
   const trackItemOffset = itemWidth + GAP;
 
@@ -93,30 +88,33 @@ export default function Carousel({
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [isResetting, setIsResetting] = useState<boolean>(false);
 
-  // Effect para medir el ancho del contenedor
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Effect para medir el ancho del contenedor cuando baseWidth no está definido
   useEffect(() => {
-    const updateWidth = () => {
-      if (containerRef.current && baseWidth === "full") {
-        const rect = containerRef.current.getBoundingClientRect();
-        setContainerWidth(rect.width || 300);
-      }
-    };
+    if (!baseWidth && containerRef.current) {
+      const updateWidth = () => {
+        if (containerRef.current) {
+          setContainerWidth(containerRef.current.offsetWidth);
+        }
+      };
 
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
+      // Medición inicial
+      updateWidth();
+
+      // Listener para cambios de tamaño
+      window.addEventListener("resize", updateWidth);
+
+      // Observer para cambios en el contenedor
+      const resizeObserver = new ResizeObserver(updateWidth);
+      resizeObserver.observe(containerRef.current);
+
+      return () => {
+        window.removeEventListener("resize", updateWidth);
+        resizeObserver.disconnect();
+      };
+    }
   }, [baseWidth]);
-
-  // Crear todos los useTransform al inicio del componente
-  const rotateYTransforms = carouselItems.map((_, index) => {
-    const range = [
-      -(index + 1) * trackItemOffset,
-      -index * trackItemOffset,
-      -(index - 1) * trackItemOffset,
-    ];
-    const outputRange = [90, 0, -90];
-    return useTransform(x, range, outputRange);
-  });
 
   useEffect(() => {
     if (pauseOnHover && containerRef.current) {
@@ -157,7 +155,6 @@ export default function Carousel({
     pauseOnHover,
   ]);
 
-  // Corregido: Transición con tipos correctos
   const effectiveTransition = isResetting ? { duration: 0 } : SPRING_OPTIONS;
 
   const handleAnimationComplete = () => {
@@ -190,7 +187,6 @@ export default function Carousel({
     }
   };
 
-  // Corregido: Propiedades de drag con tipos correctos
   const dragProps = loop
     ? {}
     : {
@@ -200,18 +196,23 @@ export default function Carousel({
         },
       };
 
+  // Estilos dinámicos del contenedor
+  const containerStyles = baseWidth ? { width: `${baseWidth}px` } : {}; // Sin ancho fijo cuando baseWidth no está definido
+
   return (
     <div
       ref={containerRef}
       className={`relative overflow-hidden p-4 ${
+        baseWidth ? "" : "w-full" // Aplicamos w-full solo cuando no hay baseWidth
+      } ${
         round
           ? "rounded-full border border-white"
-          : "rounded-[24px] border bg-neutral-400/30 backdrop-blur-[1px] border-neutral-400/20"
-      } ${baseWidth === "full" ? "w-full" : ""}`}
+          : "rounded-[24px] border border-neutral-400/50"
+      }`}
       style={{
-        ...(baseWidth !== "full" && { width: `${baseWidth}px` }),
-        ...(round && baseWidth !== "full" && { height: `${baseWidth}px` }),
-        ...(round && baseWidth === "full" && { height: `${effectiveWidth}px` }),
+        ...containerStyles,
+        ...(round && baseWidth && { height: `${baseWidth}px` }),
+        ...(round && !baseWidth && { height: `${effectiveWidth}px` }),
       }}
     >
       <motion.div
@@ -233,46 +234,54 @@ export default function Carousel({
         onAnimationComplete={handleAnimationComplete}
       >
         {carouselItems.map((item, index) => {
-          // Usar el transform pre-creado para este índice
-          const rotateY = rotateYTransforms[index];
-
+          const range = [
+            -(index + 1) * trackItemOffset,
+            -index * trackItemOffset,
+            -(index - 1) * trackItemOffset,
+          ];
+          const outputRange = [90, 0, -90];
+          const rotateY = useTransform(x, range, outputRange, { clamp: false });
           return (
             <motion.div
-              key={`${item.id}-${index}`} // Mejor key para evitar problemas con loops
-              className={`relative shrink-0 flex flex-col ${
+              key={index}
+              className={`relative shrink-0 flex flex-col h-full ${
                 round
-                  ? "items-center justify-center text-center bg-[#060010] border-0"
-                  : "items-start justify-between bg-[#222] border border-[#222] rounded-[12px]"
+                  ? "items-center justify-center text-center bg-radial from-neutral-400/20 to-neutral-400/30 border-0"
+                  : "items-start justify-between bg-radial from-neutral-400/20 to-neutral-400/30 border border-neutral-400/50 rounded-[12px]"
               } overflow-hidden cursor-grab active:cursor-grabbing`}
               style={{
                 width: itemWidth,
-                height: round ? itemWidth : "100%",
+                // height: round ? itemWidth : "100%",
                 rotateY: rotateY,
                 ...(round && { borderRadius: "50%" }),
               }}
               transition={effectiveTransition}
             >
-              <div className={`${round ? "p-0 m-0" : "px-5 pt-5 w-full"}`}>
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={300}
-                  height={500}
-                  className="w-full h-auto min-h-[30vh] object-cover rounded-tl-lg rounded-tr-lg"
-                />
+              <div
+                className={`${
+                  round ? "p-0 m-0" : "p-5"
+                } flex items-center gap-4`}
+              >
+                <span className="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-gray-300 border border-neutral-400/50">
+                  {item.icon}
+                </span>
+                <p className="flex flex-col gap-0.5 text-left text-sm text-slate-300">
+                  {item.user}
+                  <span className="flex items-center gap-2">⭐⭐⭐⭐⭐</span>
+                </p>
               </div>
-              <div className="p-5">
-                <div className="mb-1 font-black text-lg text-white">
-                  {item.title}
+              <div className="p-5 justify-start flex flex-col text-left gap-2 items-start">
+                <div className="mb-1 font-semibold text-lg italic text-slate-50">
+                  &quot;{item.title}&quot;
                 </div>
-                <p className="text-sm text-white">{item.description}</p>
+                <p className="text-sm font-light text-slate-300">
+                  {item.description}
+                </p>
               </div>
             </motion.div>
           );
         })}
       </motion.div>
-
-      {/* Indicadores de página */}
       <div
         className={`flex w-full justify-center ${
           round ? "absolute z-20 bottom-12 left-1/2 -translate-x-1/2" : ""
@@ -286,10 +295,10 @@ export default function Carousel({
                 currentIndex % items.length === index
                   ? round
                     ? "bg-white"
-                    : "bg-neutral-900/90"
+                    : "bg-[#333333]"
                   : round
-                  ? "bg-neutral-400/20"
-                  : "bg-neutral-900/50"
+                  ? "bg-[#555]"
+                  : "bg-[rgba(51,51,51,0.4)]"
               }`}
               animate={{
                 scale: currentIndex % items.length === index ? 1.2 : 1,

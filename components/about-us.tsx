@@ -1,52 +1,48 @@
-import { AppWindowMac, ChartLine, LoaderCircle } from "lucide-react";
+import { AppWindowMac, ChartColumnIncreasing, Search } from "lucide-react";
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen px-4 py-8 space-y-12 w-full flex flex-col items-center justify-center">
-      <div className="text-center space-y-8 max-w-4xl">
-        <h2 className="text-4xl text-slate-50 font-semibold">¿Que hacemos?</h2>
-        <p className="text-slate-300 text-lg">
-          Ayudamos a{" "}
-          <span className="font-semibold text-slate-50">Negocios Locales</span>{" "}
-          a mejorar su presencia digital creando{" "}
-          <span className="font-semibold text-slate-50">
-            Páginas Web con un diseño moderno y optimizado
-          </span>
-          , con el objetivo de obtener mejores resultados.
-        </p>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <div className="p-4 h-fit bg-neutral-400/20 rounded-lg backdrop-blur-[1px] border border-neutral-400/70 flex flex-col items-center text-center space-y-4">
-          <AppWindowMac color="gray" size={85} className="my-4" />
-          <h3 className="text-2xl text-slate-50 font-semibold">
-            Diseño Moderno
+    <div className="flex flex-col items-center text-center space-y-8 justify-center p-4 py-8 max-w-6xl mx-auto sm:px-8 sm:py-12">
+      <h2 className="text-4xl text-slate-50 font-semibold">¿Qué hacemos?</h2>
+      <p className="text-lg font-light text-slate-300 max-w-4xl">
+        Ayudamos a Negocios Locales a mejorar su presencia digital creando{" "}
+        <span className="text-slate-50 font-medium">
+          Páginas Web con un diseño moderno y optimizado
+        </span>
+        , con el objetivo de mejorar tu{" "}
+        <span className="text-slate-50 font-medium">
+          presencia online, generar leads o aumentar tus ventas.
+        </span>
+      </p>
+      <ul className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <li className="bg-gradient-to-br from-neutral-400/10 via-neutral-400/20 to-neutral-400/30 p-6 rounded-lg shadow-lg border border-neutral-500/20 flex flex-col items-center space-y-4">
+          <AppWindowMac size={85} color="#cbd5e1" />
+          <h3 className="text-lg font-semibold text-slate-50">
+            Desarrollo Web
           </h3>
-          <p className="text-slate-300 p-2 py-4 bg-[#060010] rounded-lg">
-            Creamos páginas web modernas y atractivas que capturan la esencia de
-            tu negocio y atraen a tus clientes.
+          <p className="text-sm text-slate-300">
+            Creamos páginas web modernas, rápidas y optimizadas para móviles.
           </p>
-        </div>
-        <div className="p-4 h-fit bg-neutral-400/20 rounded-lg backdrop-blur-[1px] border border-neutral-400/70 flex flex-col items-center text-center space-y-4">
-          <LoaderCircle color="gray" size={85} className="my-4 animate-spin" />
-          <h3 className="text-2xl text-slate-50 font-semibold">
-            Rendimiento Optimizado
+        </li>
+        <li className="bg-gradient-to-t from-neutral-400/10 via-neutral-400/20 to-neutral-400/30 p-6 rounded-lg shadow-lg border border-neutral-500/20 flex flex-col items-center space-y-4">
+          <Search size={85} color="#cbd5e1" />
+          <h3 className="text-lg font-semibold text-slate-50">
+            Posicionamiento SEO
           </h3>
-          <p className="text-slate-300 p-2 py-4 bg-[#060010] rounded-lg">
-            Nuestras páginas web están optimizadas para cargar rápidamente y
-            ofrecer una experiencia de usuario fluida.
+          <p className="text-sm text-slate-300">
+            Mejoramos tu visibilidad en Google para atraer más clientes.
           </p>
-        </div>
-        <div className="p-4 h-fit bg-neutral-400/20 rounded-lg backdrop-blur-[1px] border border-neutral-400/70 flex flex-col items-center text-center space-y-4">
-          <ChartLine color="gray" size={85} className="my-4" />
-          <h3 className="text-2xl text-slate-50 font-semibold">
-            Posicionamiento Mejorado
+        </li>
+        <li className="bg-gradient-to-bl from-neutral-400/10 via-neutral-400/20 to-neutral-400/30 p-6 rounded-lg shadow-lg border border-neutral-500/20 flex flex-col items-center space-y-4">
+          <ChartColumnIncreasing size={85} color="#cbd5e1" />
+          <h3 className="text-lg font-semibold text-slate-50">
+            Marketing Digital
           </h3>
-          <p className="text-slate-300 p-2 py-4 bg-[#060010] rounded-lg">
-            Optimizamos tu sitio web para que aparezca en los primeros
-            resultados de búsqueda de Google, aumentando tu visibilidad.
+          <p className="text-sm text-slate-300">
+            Estrategias personalizadas para aumentar tus ventas online.
           </p>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   );
 };
