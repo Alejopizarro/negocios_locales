@@ -80,23 +80,8 @@ export default function How() {
             <ChevronRight className="hidden lg:block text-slate-50" size={80} />
             <li className="flex flex-col space-y-4">
               <div className="flex items-center gap-2">
-                <span className="border border-slate-50 self-center px-2 py-1 rounded-full hover:bg-slate-50 hover:text-cyan-800 transition-colors">
-                  4
-                </span>
-                <h3 className="text-lg leading-4.5 font-semibold">
-                  Lanzamos tu página web
-                </h3>
-              </div>
-              <p className="text-sm text-slate-300">
-                Publicamos tu web y te proporcionamos las herramientas
-                necesarias para que puedas gestionarla y seguir mejorando tu
-                presencia online.
-              </p>
-            </li>
-            <li className="flex flex-col space-y-4">
-              <div className="flex items-center gap-2">
                 <span className="border border-slate-50 px-2 py-1 rounded-full self-center hover:bg-slate-50 hover:text-cyan-800 transition-colors">
-                  5
+                  4
                 </span>
                 <h3 className="text-lg font-semibold leading-4.5">
                   Seguimiento y soporte

@@ -4,9 +4,11 @@ import { CalendarIcon } from "lucide-react";
 import Image from "next/image";
 import Bars from "./ui/bars";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   return (
     <div>
@@ -66,9 +68,14 @@ export default function Hero() {
               </div>
               <Button
                 size="lg"
-                className="w-full lg:max-w-xs bg-amber-400 cursor-pointer my-2 text-white text-lg"
+                className="w-full lg:max-w-xs bg-amber-400 hover:bg-amber-500 cursor-pointer my-2 text-gray-800 font-normal lowercase text-lg"
+                onClick={() =>
+                  router.push(
+                    "https://calendly.com/negocioslocales-online9/30min"
+                  )
+                }
               >
-                <CalendarIcon />
+                <CalendarIcon className="inline-flex" />
                 Agenda una consulta gratuita
               </Button>
             </div>

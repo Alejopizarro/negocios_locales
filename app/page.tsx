@@ -1,5 +1,6 @@
 "use client";
 import AboutUs from "@/components/about-us";
+import Calendly from "@/components/calendly";
 import { FormController } from "@/components/form-controller";
 import Hero from "@/components/hero";
 import How from "@/components/how";
@@ -19,10 +20,7 @@ const Page = () => {
       <Why />
       <Opinions />
       <Pricing />
-      <div
-        ref={containerRef}
-        className="lg:min-h-screen flex flex-col justify-evenly"
-      >
+      <div ref={containerRef}>
         {" "}
         <div className="self-end">
           <div className="flex flex-col space-y-1 items-end">
@@ -33,11 +31,12 @@ const Page = () => {
             <div className="bg-cyan-500 h-2 w-24" />
           </div>
         </div>
-        <div className="flex flex-col p-8 my-8 m-4 items-center justify-center rounded-lg shadow-lg bg-cyan-500/40 border border-neutral-300/40 max-w-3xl lg:mx-auto text-slate-50">
-          <p className="text-2xl font-semibold mb-8">Formulario de Contacto</p>
-          <FormController />
-        </div>
+        <Calendly />
         <Bars externalContainerRef={containerRef} />
+      </div>
+      <div className="flex flex-col p-8 my-8 m-4 items-center justify-center rounded-lg shadow-lg bg-cyan-500/40 border border-neutral-300/40 max-w-3xl lg:mx-auto text-slate-50 sm:my-16">
+        <p className="text-2xl font-semibold mb-8">Formulario de Contacto</p>
+        <FormController />
       </div>
     </div>
   );
