@@ -25,6 +25,9 @@ const formSchema = z.object({
   name: z.string().min(2, {
     message: "El nombre debe tener al menos 2 caracteres.",
   }),
+  companyName: z.string().min(2, {
+    message: "El nombre de la empresa debe tener al menos 2 caracteres.",
+  }),
   email: z.string().email({
     message: "Ingresa un correo electronico valido",
   }),
@@ -63,7 +66,7 @@ export function FormController() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(data),
-        }
+        },
       );
 
       console.log("Formulario enviado:", response.json, data);
@@ -93,8 +96,25 @@ export function FormController() {
                 <FormLabel>Nombre Completo</FormLabel>
                 <FormControl>
                   <Input
-                    className="text-slate-300 placeholder:text-slate-400"
+                    className="text-gray-600 placeholder:text-gray-600"
                     placeholder="Juan Perez"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="companyName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Nombre de la Empresa</FormLabel>
+                <FormControl>
+                  <Input
+                    className="text-gray-600 placeholder:text-gray-600"
+                    placeholder="Negocio Local S.A."
                     {...field}
                   />
                 </FormControl>
@@ -110,7 +130,7 @@ export function FormController() {
                 <FormLabel>Correo Electronico</FormLabel>
                 <FormControl>
                   <Input
-                    className="text-slate-300 placeholder:text-slate-400"
+                    className="text-gray-600 placeholder:text-gray-600"
                     placeholder="juanperez@gmail.com"
                     {...field}
                   />
@@ -127,12 +147,12 @@ export function FormController() {
                 <FormLabel>Numero de Telefono</FormLabel>
                 <FormControl>
                   <Input
-                    className="text-slate-300 placeholder:text-slate-400"
+                    className="text-gray-600 placeholder:text-gray-600"
                     placeholder="622333444"
                     {...field}
                   />
                 </FormControl>
-                <FormDescription className="text-sm text-slate-300">
+                <FormDescription className="text-sm text-gray-600">
                   Aquí te contactaremos para enviarte más información y resolver
                   tus dudas.
                 </FormDescription>
@@ -151,11 +171,11 @@ export function FormController() {
                     onCheckedChange={field.onChange}
                   />
                 </FormControl>
-                <FormLabel className="font-light text-slate-300">
+                <FormLabel className="font-light text-gray-600">
                   <p>
                     He leído y acepto la politica de{" "}
                     <Link
-                      className="font-medium text-slate-50 text-decoration-line: underline"
+                      className="font-medium text-gray-950 text-decoration-line: underline"
                       href="/quienes-somos/politica-de-privacidad"
                     >
                       protección de datos.
@@ -168,7 +188,7 @@ export function FormController() {
           <Button
             type="submit"
             variant="outline"
-            className="w-full text-gray-950 bg-amber-400 hover:bg-amber-500 focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 cursor-pointer"
+            className="w-full text-gray-950 bg-slate-50 hover:bg-slate-100 border-2 border-gray-950/80 focus:ring-offset-2 cursor-pointer"
           >
             {isLoading === true && (
               <p className="flex items-center gap-x-2">
@@ -184,26 +204,26 @@ export function FormController() {
         </form>
       )}
       {error && (
-        <div className="flex flex-col space-y-4 text-xl text-slate-50 font-medium">
+        <div className="flex flex-col space-y-4 text-xl text-gray-950 font-medium">
           <p>Ha habido un problema al enviar el formulario</p>
           <p>Puedes contactarte al siguiente numero</p>
-          <p className="flex items-center gap-x-2 text-xl text-slate-300 font-semibold">
+          <p className="flex items-center gap-x-2 text-xl text-gray-600 font-semibold">
             <PhoneCall />
             951 68 13 83
           </p>
         </div>
       )}
       {isSuccess && (
-        <div className="flex flex-col items-center p-8 space-y-4 text-sm text-center text-slate-300 ">
+        <div className="flex flex-col items-center p-8 space-y-4 text-sm text-center text-gray-600 ">
           <Check size={92} className="border-2 rounded-full p-3" />
-          <p className="text-lg font-semibold text-slate-50">
+          <p className="text-lg font-semibold text-gray-950">
             Formulario enviado correctamente
           </p>
           <div>
             <p>Te contactaremos dentro de las proximas 24/48 hs habiles.</p>
             <p>Por cualquier duda puedes comunicarte al siguiente numero</p>
           </div>
-          <p className="flex items-center gap-x-2 text-xl text-slate-300 font-semibold">
+          <p className="flex items-center gap-x-2 text-xl text-gray-600 font-semibold">
             <PhoneCall />
             951 68 13 83
           </p>

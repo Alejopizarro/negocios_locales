@@ -21,11 +21,11 @@ export default function How() {
             <div className="bg-cyan-500 h-2 w-24" />
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center max-w-6xl text-slate-50 space-y-8 mx-auto px-4 py-8 sm:px-8 sm:py-12">
+        <div className="flex flex-col items-center justify-center max-w-6xl text-gray-950 space-y-8 mx-auto px-4 py-8 sm:px-8 sm:py-12">
           <h2 className="text-4xl font-semibold text-center">
             ¿Cómo lo hacemos?
           </h2>
-          <p className="text-lg font-light text-slate-300 text-center max-w-4xl">
+          <p className="text-lg font-light text-gray-600 text-center max-w-4xl">
             Nos encargamos de diseñar una web que refleje la esencia de tu
             negocio, optimizada para tener el mejor rendimiento posible, que
             aparezca entre los primeros resultados y que te ayude a captar más
@@ -34,60 +34,60 @@ export default function How() {
           <ul className="flex flex-col lg:flex-row justify-start items-center lg:justify-center lg:items-start mt-4 px-2 gap-8">
             <li className="flex flex-col space-y-4">
               <div className="flex items-center gap-2">
-                <span className="border border-slate-50 self-center px-2 py-1 rounded-full hover:bg-slate-50 hover:text-cyan-800 transition-colors">
+                <span className="border border-gray-950 self-center px-2 py-1 rounded-full hover:bg-gray-950 hover:text-white transition-colors">
                   1
                 </span>
                 <h3 className="text-lg font-semibold leading-4.5">
                   Análizamos tu negocio
                 </h3>
               </div>
-              <p className="text-sm text-slate-300">
+              <p className="text-sm text-gray-600">
                 Evaluamos tu negocio y objetivos para crear una web a medida con
                 una estrategia optimizada para que consigas resultados.
               </p>
             </li>
-            <ChevronRight className="hidden lg:block text-slate-50" size={80} />
+            <ChevronRight className="hidden lg:block text-gray-950" size={80} />
             <li className="flex flex-col space-y-4">
               <div className="flex items-center gap-2">
-                <span className="border border-slate-50 self-center px-2 py-1 rounded-full hover:bg-slate-50 hover:text-cyan-800 transition-colors">
+                <span className="border border-gray-950 self-center px-2 py-1 rounded-full hover:bg-gray-950 hover:text-white transition-colors">
                   2
                 </span>
                 <h3 className="text-lg font-semibold leading-4.5">
                   Diseñamos tu web
                 </h3>
               </div>
-              <p className="text-sm text-slate-300">
+              <p className="text-sm text-gray-600">
                 Creamos un diseño moderno y profesional que refleje la identidad
                 de tu negocio, optimizado para una experiencia de usuario
                 fluida.
               </p>
             </li>
-            <ChevronRight className="hidden lg:block text-slate-50" size={80} />
+            <ChevronRight className="hidden lg:block text-gray-950" size={80} />
             <li className="flex flex-col space-y-4">
               <div className="flex items-center gap-2">
-                <span className="border border-slate-50 self-center px-2 py-1 rounded-full hover:bg-slate-50 hover:text-cyan-800 transition-colors">
+                <span className="border border-gray-950 self-center px-2 py-1 rounded-full hover:bg-gray-950 hover:text-white transition-colors">
                   3
                 </span>
                 <h3 className="text-lg font-semibold leading-4.5">
                   Optimizamos para Google
                 </h3>
               </div>
-              <p className="text-sm text-slate-300">
+              <p className="text-sm text-gray-600">
                 Implementamos técnicas de SEO para mejorar tu visibilidad en
                 Google y atraer más clientes potenciales a tu negocio.
               </p>
             </li>
-            <ChevronRight className="hidden lg:block text-slate-50" size={80} />
+            <ChevronRight className="hidden lg:block text-gray-950" size={80} />
             <li className="flex flex-col space-y-4">
               <div className="flex items-center gap-2">
-                <span className="border border-slate-50 px-2 py-1 rounded-full self-center hover:bg-slate-50 hover:text-cyan-800 transition-colors">
+                <span className="border border-gray-950 px-2 py-1 rounded-full self-center hover:bg-gray-950 hover:text-white transition-colors">
                   4
                 </span>
                 <h3 className="text-lg font-semibold leading-4.5">
                   Seguimiento y soporte
                 </h3>
               </div>
-              <p className="text-sm text-slate-300">
+              <p className="text-sm text-gray-600">
                 Ofrecemos soporte continuo y análisis de resultados para
                 optimizar tu web y asegurar que sigas captando clientes.
               </p>

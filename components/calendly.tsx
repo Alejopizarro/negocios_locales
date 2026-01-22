@@ -16,17 +16,17 @@ const Calendly = () => {
 
   return (
     <div className="max-w-8xl mx-auto text-center p-4 py-8 sm:px-8 sm:py-12">
-      <h2 className="text-4xl font-semibold text-slate-50">
+      <h2 className="text-4xl font-semibold text-gray-950">
         ¿Quiéres hablar con nosotros?
       </h2>
-      <p className="text-lg mt-8 font-light text-slate-300 max-w-4xl mx-auto">
+      <p className="text-lg mt-4 lg:mt-8 font-light text-gray-600 max-w-4xl mx-auto">
         Agenda una consulta gratuita para hablar acerca de tu negocio y saber
         como podriamos ayudar.
       </p>
       <div>
         <div
           ref={calendlyRef}
-          className="calendly-inline-widget"
+          className="calendly-inline-widget mt-8"
           data-url="https://calendly.com/negocioslocales-online9/30min?background_color=f2f2f2"
           style={{
             minWidth: "320px",

@@ -43,9 +43,9 @@ export const AccordionItems = [
 
 const Why = () => {
   return (
-    <div className="flex flex-col items-center justify-center text-center text-slate-50 max-w-6xl space-y-8 mx-auto px-4 py-8 pt-18 sm:px-8 sm:py-12">
+    <div className="flex flex-col items-center justify-center text-center text-gray-950 max-w-6xl space-y-8 mx-auto px-4 py-8 pt-18 sm:px-8 sm:py-12">
       <h2 className="text-4xl font-semibold">¿Por qué elegirnos?</h2>
-      <p className="text-lg font-light text-slate-300 max-w-3xl">
+      <p className="text-lg font-light text-gray-600 max-w-3xl">
         Nos especializamos en ayudar a negocios locales a mejorar su presencia
         digital con páginas web modernas, optimizadas y adaptadas a sus
         necesidades específicas.
@@ -67,7 +67,7 @@ const Why = () => {
                 />
                 <ul>
                   {item.li.map((li, index) => (
-                    <li key={index} className="text-sm text-slate-300">
+                    <li key={index} className="text-sm text-gray-600">
                       <Check className="inline-flex mr-2" />
                       {li}
                     </li>

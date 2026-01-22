@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
-import { Host_Grotesk } from "next/font/google";
+import { Bebas_Neue, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/footer";
 
-const host_grotesk = Host_Grotesk({
+const bebasNeue = Bebas_Neue({
+  weight: "400",
   subsets: ["latin"],
+  variable: "--font-bebas-neue",
+});
+
+const sourceSans = Source_Sans_3({
+  subsets: ["latin"],
+  variable: "--font-source-sans",
 });
 
 export const metadata: Metadata = {
@@ -19,7 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={host_grotesk.className}>{children}</body>
+      <body className={`${bebasNeue.variable} ${sourceSans.variable}`}>
+        {children}
+      </body>
+      <Footer />
     </html>
   );
 }

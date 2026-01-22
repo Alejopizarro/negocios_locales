@@ -168,7 +168,7 @@ export default function Carousel({
 
   const handleDragEnd = (
     _: MouseEvent | TouchEvent | PointerEvent,
-    info: PanInfo
+    info: PanInfo,
   ): void => {
     const offset = info.offset.x;
     const velocity = info.velocity.x;
@@ -265,16 +265,16 @@ export default function Carousel({
                 <span className="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-gray-300 border border-neutral-400/50">
                   {item.icon}
                 </span>
-                <p className="flex flex-col gap-0.5 text-left text-sm text-slate-300">
+                <p className="flex flex-col gap-0.5 text-left text-sm text-gray-600">
                   {item.user}
                   <span className="flex items-center gap-2">⭐⭐⭐⭐⭐</span>
                 </p>
               </div>
               <div className="p-5 justify-start flex flex-col text-left gap-2 items-start">
-                <div className="mb-1 font-semibold text-lg italic text-slate-50">
+                <div className="mb-1 font-semibold text-lg italic text-gray-950">
                   &quot;{item.title}&quot;
                 </div>
-                <p className="text-sm font-light text-slate-300">
+                <p className="text-sm font-light text-gray-600">
                   {item.description}
                 </p>
               </div>
@@ -297,8 +297,8 @@ export default function Carousel({
                     ? "bg-white"
                     : "bg-[#333333]"
                   : round
-                  ? "bg-[#555]"
-                  : "bg-[rgba(51,51,51,0.4)]"
+                    ? "bg-[#555]"
+                    : "bg-[rgba(51,51,51,0.4)]"
               }`}
               animate={{
                 scale: currentIndex % items.length === index ? 1.2 : 1,

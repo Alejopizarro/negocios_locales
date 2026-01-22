@@ -13,7 +13,7 @@ import { useRef } from "react";
 const Page = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   return (
-    <div className="bg-gradient-to-b from-cyan-700 to-cyan-900 py-8">
+    <div className="bg-slate-50 py-8">
       <Hero />
       <AboutUs />
       <How />
@@ -34,9 +34,27 @@ const Page = () => {
         <Calendly />
         <Bars externalContainerRef={containerRef} />
       </div>
-      <div className="flex flex-col p-8 my-8 m-4 items-center justify-center rounded-lg shadow-lg bg-cyan-500/40 border border-neutral-300/40 max-w-3xl lg:mx-auto text-slate-50 sm:my-16">
-        <p className="text-2xl font-semibold mb-8">Formulario de Contacto</p>
-        <FormController />
+      <div className="relative flex items-center overflow-hidden py-16">
+        {/* Grid background en el centro */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#06b6d430_1px,transparent_1px),linear-gradient(to_bottom,#06b6d430_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+
+        {/* Sombreado slate-50 en los bordes para ocultar el grid */}
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-slate-50 to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-slate-50 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-50 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-50 to-transparent" />
+
+        {/* Sombra cyan en el centro interno */}
+        <div className="absolute inset-0 bg-radial from-cyan-500/15 via-transparent to-transparent" />
+
+        <div className="relative flex flex-col items-center justify-center max-w-6xl space-y-8 mx-auto px-4">
+          <h2 className="text-4xl font-semibold text-gray-950">
+            Formulario de Contacto
+          </h2>
+          <div className="flex flex-col p-8 m-4 items-center justify-center rounded-lg shadow-lg bg-slate-50 border-2 border-gray-950/80 max-w-2xl lg:mx-auto text-gray-950 my-8">
+            <FormController />
+          </div>
+        </div>
       </div>
     </div>
   );

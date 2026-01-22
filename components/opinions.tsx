@@ -39,11 +39,11 @@ const Opinions = () => {
           <div className="bg-cyan-500 h-2 w-24" />
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center text-center text-slate-50 max-w-6xl space-y-8 mx-auto px-4 py-8 sm:px-8 sm:py-12">
+      <div className="flex flex-col items-center justify-center text-center text-gray-950 max-w-6xl space-y-8 mx-auto px-4 py-8 sm:px-8 sm:py-12">
         <h2 className="text-4xl font-semibold">
           Opiniones de nuestros clientes
         </h2>
-        <p className="text-lg font-light text-slate-300 max-w-3xl">
+        <p className="text-lg font-light text-gray-600 max-w-3xl">
           Nuestros clientes confían en nosotros para mejorar su presencia
           digital. Aquí están algunas de sus opiniones.
         </p>
