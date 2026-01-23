@@ -39,7 +39,7 @@ const CardWrapper = (props: CardWrapperProps) => {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto flex flex-wrap justify-center">
+    <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-4">
       {item.map((opinion, index) => {
         const isExpanded = expandedCard === opinion.id;
         const isOverflowing = overflowingCards.has(opinion.id);
@@ -47,9 +47,9 @@ const CardWrapper = (props: CardWrapperProps) => {
         return (
           <div
             key={opinion.id}
-            className="bg-slate-50 rounded-lg border-2 border-gray-950/80 shadow-md p-6 py-4 lg:mx-4 my-2 w-80 flex flex-col h-fit"
+            className="bg-slate-50 rounded-lg w-full border-2 border-gray-950/80 shadow-md p-6 py-4 lg:mx-4 my-2 w-80 flex flex-col h-fit"
           >
-            <div className="flex items-start mb-1">
+            <div className="flex items-start mb-4">
               <div
                 className={`mr-3 ${iconBgColors[index % iconBgColors.length]} p-3 rounded-full`}
               >
@@ -57,7 +57,7 @@ const CardWrapper = (props: CardWrapperProps) => {
               </div>
               <div className="flex flex-col">
                 <p className="text-gray-500 text-sm">{opinion.user}</p>
-                <div className="flex mt-1 mb-4">
+                <div className="flex mt-1">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
@@ -71,9 +71,11 @@ const CardWrapper = (props: CardWrapperProps) => {
               ref={(el) => {
                 if (el) contentRefs.current.set(opinion.id, el);
               }}
-              className={`flex-1 overflow-hidden ${!isExpanded ? "max-h-48" : ""}`}
+              className={`flex-1 overflow-hidden ${!isExpanded ? "max-h-42" : ""}`}
             >
-              <p className="text-md font-semibold mb-2">{opinion.title}</p>
+              <p className="text-md italic font-semibold mb-4">
+                &ldquo;{opinion.title}&rdquo;
+              </p>
               <p className="text-gray-600 text-sm mb-2">
                 {opinion.description}
               </p>

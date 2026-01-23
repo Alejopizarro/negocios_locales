@@ -35,7 +35,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="h-full grid grid-cols-1 lg:grid-cols-2 gap-4 justify-center items-center max-w-6xl mx-auto px-4 py-8 lg:px-8">
-          <div className="relative py-4 order-2 lg:order-1">
+          <div className="relative py-6 order-2 lg:order-1">
             <SearchMockup />
           </div>
 
@@ -71,13 +71,13 @@ export default function Hero() {
                 para captar más clientes en su zona.
               </p>
               <div className="grid grid-cols-3 gap-1 lg:gap-2 text-xs lg:text-sm font-medium text-center mt-2 lowercase text-gray-900">
-                <span className="px-2 py-1 rounded-md border-2 border-gray-950/80 text-gray-950 font-semibold">
+                <span className="px-1 lg:px-2 py-1 rounded-md border-2 border-gray-950/80 text-gray-950 font-semibold">
                   paginas web
                 </span>
-                <span className="px-2 py-1 rounded-md border-2 border-gray-950/80 text-gray-950 font-semibold">
+                <span className="px-1 lg:px-2 py-1 rounded-md border-2 border-gray-950/80 text-gray-950 font-semibold">
                   presencia en google
                 </span>
-                <span className="px-2 py-1 rounded-md border-2 border-gray-950/80 text-gray-950 font-semibold">
+                <span className="px-1 lg:px-2 py-1 rounded-md border-2 border-gray-950/80 text-gray-950 font-semibold">
                   posicionamiento local
                 </span>
               </div>

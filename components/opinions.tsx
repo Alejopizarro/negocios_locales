@@ -56,7 +56,7 @@ const Opinions = () => {
           Nuestros clientes confían en nosotros para mejorar su presencia
           digital. Aquí están algunas de sus opiniones.
         </p>
-        <div className="w-full max-w-7xl mx-auto flex justify-center">
+        <div className="w-full">
           <CardWrapper item={OpinionsItems} />
         </div>
       </div>
