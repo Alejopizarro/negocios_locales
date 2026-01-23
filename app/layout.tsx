@@ -29,8 +29,8 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${bebasNeue.variable} ${sourceSans.variable}`}>
         {children}
+        <Footer />
       </body>
-      <Footer />
     </html>
   );
 }

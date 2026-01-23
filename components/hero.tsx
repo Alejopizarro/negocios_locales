@@ -1,10 +1,10 @@
 "use client";
 import { Button } from "./ui/button";
 import { CalendarIcon } from "lucide-react";
-import Image from "next/image";
 import Bars from "./ui/bars";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
+import SearchMockup from "./search-mockup";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -35,28 +35,11 @@ export default function Hero() {
           </div>
         </div>
         <div className="h-full grid grid-cols-1 lg:grid-cols-2 gap-4 justify-center items-center max-w-6xl mx-auto px-4 py-8 lg:px-8">
-          <div className="relative order-2 lg:order-1">
-            {/* Imagen para mobile - máscara en bottom */}
-            <Image
-              src="/hero-neg-locales-removed.png"
-              alt="Hero Background"
-              className="lg:hidden mask-radial-[110%_170%] mask-radial-from-75% mask-radial-at-top-right h-190 object-cover -translate-y-15 translate-x-3 drop-shadow-lg"
-              priority={true}
-              width={700}
-              height={700}
-            />
-            {/* Imagen para desktop - máscara en top-right */}
-            <Image
-              src="/hero-neg-locales-removed.png"
-              alt="Hero Background"
-              className="hidden lg:block mask-radial-[130%_130%] mask-radial-from-90% mask-radial-at-top-right h-150 object-cover -translate-y-20 drop-shadow-lg"
-              priority={true}
-              width={700}
-              height={700}
-            />
+          <div className="relative py-4 order-2 lg:order-1">
+            <SearchMockup />
           </div>
 
-          <div className="flex flex-col justify-center h-full space-y-4 lg:space-y-8 max-w-4xl mx-auto tracking-tight leading-none text-gray-700 order-1 lg:order-2 py-8">
+          <div className="flex flex-col justify-center h-full space-y-4 lg:space-y-8 max-w-4xl mx-auto tracking-tight leading-none text-gray-700 order-1 lg:order-2 py-4">
             <p className="text-lg lg:text-xl">
               ¿Quiéres hacer crecer la{" "}
               <span className="text-gray-950 font-semibold">
@@ -87,14 +70,14 @@ export default function Hero() {
                 </span>{" "}
                 para captar más clientes en su zona.
               </p>
-              <div className="grid grid-cols-3 gap-2 text-xs lg:text-sm font-medium text-center mt-2 lowercase text-gray-900">
-                <span className="px-2 py-1 rounded-md border-1 border-gray-950/80 text-gray-950 font-medium">
+              <div className="grid grid-cols-3 gap-1 lg:gap-2 text-xs lg:text-sm font-medium text-center mt-2 lowercase text-gray-900">
+                <span className="px-2 py-1 rounded-md border-2 border-gray-950/80 text-gray-950 font-semibold">
                   paginas web
                 </span>
-                <span className="px-2 py-1 rounded-md border-1 border-gray-950/80 text-gray-950 font-medium">
+                <span className="px-2 py-1 rounded-md border-2 border-gray-950/80 text-gray-950 font-semibold">
                   presencia en google
                 </span>
-                <span className="px-2 py-1 rounded-md border-1 border-gray-950/80 text-gray-950 font-medium">
+                <span className="px-2 py-1 rounded-md border-2 border-gray-950/80 text-gray-950 font-semibold">
                   posicionamiento local
                 </span>
               </div>

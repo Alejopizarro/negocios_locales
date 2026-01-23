@@ -27,12 +27,13 @@ const AboutUs = () => {
               `,
               backgroundSize: "20px 20px",
               mask: "radial-gradient(ellipse at center, black 0%, transparent 70%)",
-              WebkitMask: "radial-gradient(ellipse at center, black 0%, transparent 70%)",
+              WebkitMask:
+                "radial-gradient(ellipse at center, black 0%, transparent 70%)",
             }}
           />
           <AppWindowMac
             size={85}
-            className="text-gray-950/80 relative z-10"
+            className="text-gray-950/80 bg-slate-50 relative z-10"
             strokeWidth={0.8}
           />
           <h3 className="text-lg font-semibold text-gray-950 relative z-10">
@@ -52,10 +53,15 @@ const AboutUs = () => {
               `,
               backgroundSize: "20px 20px",
               mask: "radial-gradient(ellipse at center, black 0%, transparent 70%)",
-              WebkitMask: "radial-gradient(ellipse at center, black 0%, transparent 70%)",
+              WebkitMask:
+                "radial-gradient(ellipse at center, black 0%, transparent 70%)",
             }}
           />
-          <Search size={85} className="text-gray-950/80 relative z-10" strokeWidth={0.8} />
+          <Search
+            size={85}
+            className="text-gray-950/80 bg-slate-50 relative rounded-full z-10"
+            strokeWidth={0.8}
+          />
           <h3 className="text-lg font-semibold text-gray-950 relative z-10">
             Posicionamiento SEO
           </h3>
@@ -73,10 +79,15 @@ const AboutUs = () => {
               `,
               backgroundSize: "20px 20px",
               mask: "radial-gradient(ellipse at center, black 0%, transparent 70%)",
-              WebkitMask: "radial-gradient(ellipse at center, black 0%, transparent 70%)",
+              WebkitMask:
+                "radial-gradient(ellipse at center, black 0%, transparent 70%)",
             }}
           />
-          <MapPin size={85} className="text-gray-950/80 relative z-10" strokeWidth={0.8} />
+          <MapPin
+            size={85}
+            className="text-gray-950/80 relative bg-slate-50 rounded-full z-10"
+            strokeWidth={0.8}
+          />
           <h3 className="text-lg font-semibold text-gray-950 relative z-10">
             Presencia Local
           </h3>

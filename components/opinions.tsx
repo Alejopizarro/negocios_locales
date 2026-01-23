@@ -1,10 +1,10 @@
 "use client";
 import { User } from "lucide-react";
-import Carousel, { CarouselItem } from "./ui/carousel";
 import { useRef } from "react";
 import Bars from "./ui/bars";
+import CardWrapper, { OpinionItem } from "./ui/card-wrapper";
 
-export const OpinionsItems: CarouselItem[] = [
+export const OpinionsItems: OpinionItem[] = [
   {
     title:
       "La página web que crearon para mi negocio ha superado todas mis expectativas, ahora tenemos una página web que funciona bien, cumple con todas las reglamentaciones y convierte más leads. ¡Gracias por su profesionalismo!",
@@ -22,6 +22,15 @@ export const OpinionsItems: CarouselItem[] = [
     icon: <User className="h-[21px] w-[21px] text-black" />,
     user: "Roser, Fisioterapeuta",
     id: 2,
+  },
+  {
+    title:
+      "Estoy encantado con el trabajo realizado, hemos diseñado una web nueva completamente funcional y moderna que atrae más visitantes y aumenta las ventas",
+    description:
+      "Para este  cliente hemos rediseñado su página web existente, mejorando el diseño, la usabilidad y optimizando el SEO para aumentar el tráfico y las conversiones.",
+    icon: <User className="h-[21px] w-[21px] text-black" />,
+    user: "Carlos, Restaurante El Pescador",
+    id: 3,
   },
 ];
 
@@ -47,8 +56,8 @@ const Opinions = () => {
           Nuestros clientes confían en nosotros para mejorar su presencia
           digital. Aquí están algunas de sus opiniones.
         </p>
-        <div className="w-full max-w-4xl mx-auto flex justify-center">
-          <Carousel items={OpinionsItems} />
+        <div className="w-full max-w-7xl mx-auto flex justify-center">
+          <CardWrapper item={OpinionsItems} />
         </div>
       </div>
       <Bars externalContainerRef={containerRef} />
